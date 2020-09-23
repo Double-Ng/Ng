@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ng.dao.BookDao">
+
+    <select id="selectBookById" resultType="com.ng.domain.Book">
+        SELECT * From t_book WHERE id=#{id}
+    </select>
+
+    <select id="selectForItems" resultType="com.ng.domain.Book">
+        SELECT * From t_book WHERE price BETWEEN #{min} AND #{max} LIMIT #{begin},#{pageSize}
+    </select>
+
+    <select id="selectForTotalCount" resultType="int" >
+        SELECT COUNT(*) FROM t_book WHERE price BETWEEN #{min} AND #{max}
+    </select>
+
+    <select id="selectMaxPrice" resultType="int">
+        SELECT max(price) FROM t_book
+    </select>
+
+    <insert id="insertBook" parameterType="com.ng.domain.Book">
+        INSERT INTO t_book (name, price, author, sales, stocks, imgPath) VALUES (#{name},#{price},#{author},#{sales},#{stocks},#{imgPath})
+    </insert>
+    <update id="updateBook" parameterType="com.ng.domain.Book">
+        UPDATE t_book SET name=#{name},price=#{price},author=#{author},sales=#{sales},stocks=#{stocks},imgPath=#{imgPath} WHERE id=#{id}
+    </update>
+    <delete id="deleteBook" parameterType="int">
+        DELETE FROM t_book WHERE id=#{id}
+    </delete>
+
+
+</mapper>
