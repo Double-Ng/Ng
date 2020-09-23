@@ -70,6 +70,7 @@ public class UserController {
         return mv;
     }
 
+    //Ajax
     @RequestMapping(value = "/existUsernameAjax.do",produces ="text/pain; charset=utf-8")
     @ResponseBody
     public String existUsernameAjax(String username) {
