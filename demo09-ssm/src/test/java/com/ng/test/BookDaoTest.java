@@ -10,6 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Stack;
 
 import static org.junit.Assert.*;
 
@@ -48,6 +49,7 @@ public class BookDaoTest {
 
     @Test
     public void another(){
+        Stack str= new Stack<>();
         Book book = new Book();
         book.setId(23);
         book.setName("啊啊啊");
