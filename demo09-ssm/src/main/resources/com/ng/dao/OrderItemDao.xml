@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ng.dao.OrderItemDao">
+
+    <insert id="insertOrderItem" parameterType="com.ng.domain.OrderItem">
+        INSERT INTO t_order_item (name,count,price,totalPrice,orderID) VALUE (#{name},#{count},#{price},#{totalPrice},#{orderID})
+    </insert>
+
+    <select id="selectOrderItemsByOrderID" resultType="com.ng.domain.OrderItem">
+        SELECT * FROM t_order_item WHERE orderID=#{orderID}
+    </select>
+
+
+</mapper>
